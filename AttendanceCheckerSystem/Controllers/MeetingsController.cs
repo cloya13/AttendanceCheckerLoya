@@ -205,7 +205,7 @@ namespace AttendanceCheckerSystem.Controllers
             return _context.Meetings.Any(e => e.ID == id);
         }
 
-        public IActionResult AttendanceSummary()
+        public async Task<IActionResult> AttendanceSummary()
         {
             IEnumerable<Student> list = await _context.Students.ToListAsync();
 
