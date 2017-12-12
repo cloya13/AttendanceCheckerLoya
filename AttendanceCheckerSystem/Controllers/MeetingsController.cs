@@ -207,7 +207,13 @@ namespace AttendanceCheckerSystem.Controllers
 
         public IActionResult AttendanceSummary()
         {
-            return View();
+            IEnumerable<Student> list = await _context.Students.ToListAsync();
+
+            var filt_list = from s in list
+                            where s.FirstName.StartsWith("")
+                            select s;
+
+            return View(filt_list);
         }
     }
 }

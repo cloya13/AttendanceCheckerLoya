@@ -1,7 +1,24 @@
-﻿@model AttendanceSummaryViewModel
+﻿@model IEnumerable<AttendanceCheckerSystem.Models.Student>
 @{
     ViewData["Title"] = "AttendanceSummary";
 }
 
 <h2>AttendanceSummary</h2>
 
+<div>
+    <ol class="enrolled">
+        @foreach (var ad in Model)
+        {
+            <li>
+                <span class="studentLink">
+
+                    <span class="mattendee">@ad.ID</span>
+                    @ad.FirstName, @ad.LastName
+                    <img src ="@ad.Photo" width="100" alt="Photo of @ad.FirstName @ad.LastName" class="StudentPhoto"/>
+                </span>
+            </li>
+
+        }
+    </ol>
+    <hr/>
+</div>
